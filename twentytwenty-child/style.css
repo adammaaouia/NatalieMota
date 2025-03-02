@@ -1,0 +1,1046 @@
+/*
+Theme Name: Twenty Twenty Child
+Theme URI: https://wordpress.org/themes/twentytwenty/
+Template: twentytwenty
+Author: the WordPress team
+Author URI: https://wordpress.org/
+Description: Our default theme for 2020 is designed to take full advantage of the flexibility of the block editor. Organizations and businesses have the ability to create dynamic landing pages with endless layouts using the group and column blocks. The centered content column and fine-tuned typography also makes it perfect for traditional blogs. Complete editor styles give you a good idea of what your content will look like, even before you publish. You can give your site a personal touch by changing the background colors and the accent color in the Customizer. The colors of all elements on your site are automatically calculated based on the colors you pick, ensuring a high, accessible color contrast for your visitors.
+Tags: blog,one-column,custom-background,custom-colors,custom-logo,custom-menu,editor-style,featured-images,footer-widgets,full-width-template,rtl-language-support,sticky-post,theme-options,threaded-comments,translation-ready,block-patterns,block-styles,wide-blocks,accessibility-ready
+Version: 2.8.1737301045
+Updated: 2025-01-19 15:37:25
+
+*/
+
+main {
+    background-color: white;
+}
+
+/* Header Styles */
+#site-header {
+    background-color: #ffffff;
+    padding: 10px 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+#site-header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#site-header .site-logo img {
+    height: 50px;
+}
+
+#site-header .site-navigation ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 20px;
+}
+
+#site-header .site-navigation a {
+    text-decoration: none;
+    color: #333;
+}
+
+#site-header .site-navigation a:hover {
+    color: red;
+}
+
+#site-footer {
+    padding-top: 10px;
+    padding-bottom: 50px;
+    background-color: #ffffff; 
+    border-top: 1px solid #000000 !important;
+    
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+    margin: 0 auto;
+}
+
+.footer-navigation-left, .footer-navigation-right {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.footer-navigation-center {
+    flex: 1;
+    text-align: center;
+}
+
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+ul li {
+    display: inline;
+    margin: 0 10px;
+}
+
+ul li a {
+    text-decoration: none;
+    color: #000;
+}
+
+.footer-navigation-left ul li, .footer-navigation-right ul li {
+    margin-right: 30px;
+}
+
+.footer-navigation-center ul li {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+footer {
+    height: 40px;
+}
+
+/* Style pour la bannière */
+#banner {
+    background-image: url('nathalie-11.jpeg'); /* Correction du chemin */
+    background-size: cover;
+    background-position: center;
+    min-height: 966px; /* Hauteur minimale pour garder l'image visible */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #000; /* Couleur de fond en secours */
+}
+
+/* Style du contenu */
+#banner .banner-content {
+    text-align: center;
+    color: #fff;
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.7);
+}
+
+/* Style du titre */
+#banner h1 {
+    font-size: 120px;
+    color: transparent;
+    -webkit-text-stroke: 3px white; /* Bordure du texte */
+    text-shadow: none;
+    line-height: 1.2;
+}
+
+
+
+
+/* Mode Responsive pour écrans plus petits */
+@media (max-width: 1024px) {
+    #banner {
+        height: 600px; /* Hauteur réduite pour les tablettes */
+    }
+
+    #banner h1 {
+        font-size: 100px; /* Taille ajustée pour les tablettes */
+        -webkit-text-stroke: 1px white; /* Bordure autour du texte */
+    }
+}
+
+@media (max-width: 768px) {
+    #banner {
+        height: 400px; /* Hauteur réduite pour les petits écrans */
+    }
+
+    #banner h1 {
+        font-size: 80px; /* Taille ajustée pour les petits écrans */
+        -webkit-text-stroke: 1px white; /* Bordure autour du texte */
+    }
+}
+
+@media (max-width: 480px) {
+    #banner {
+        height: 300px; /* Hauteur réduite pour les très petits écrans */
+    }
+
+    #banner h1 {
+        font-size: 60px; /* Taille ajustée pour les très petits écrans */
+        -webkit-text-stroke: 1px white; /* Bordure autour du texte */
+    }
+}
+
+
+
+/* Style pour le contenu principal */
+#site-content .container {
+    padding: 20px;
+}
+
+/* Classes CSS pour Space Mono */
+.space-mono-regular {
+    font-family: "Space Mono", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.space-mono-bold {
+    font-family: "Space Mono", serif;
+    font-weight: 700;
+    font-style: normal;
+}
+
+.space-mono-regular-italic {
+    font-family: "Space Mono", serif;
+    font-weight: 400;
+    font-style: italic;
+}
+
+.space-mono-bold-italic {
+    font-family: "Space Mono", serif;
+    font-weight: 700;
+    font-style: italic;
+}
+
+
+#load-more {
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color:#D8D8D8;
+    color: #000;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 272px;
+    height: 50px;
+}
+
+#load-more:hover {
+    background: rgba(0, 0, 0, 0.4);
+}
+
+/* Styles pour la pop-up */
+.popup {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+}
+
+.popup-content {
+    background: #fff;
+    padding: 20px;
+    max-width: 600px;
+    width: 90%;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.close-popup {
+    justify-content: center;
+    float: right;
+    font-size: 1.5rem;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close-popup:hover {
+    color: #D8D8D8;
+}
+
+
+.image-container {
+    position: relative;
+    display: inline-block;
+}
+
+.clickable-image {
+    width: 300px; /* Ajuste la taille selon tes besoins */
+    cursor: pointer;
+}
+
+/* ---- GALERIE ---- */
+#gallery{
+    padding-top: 40px;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Colonnes équilibrées */
+    gap: 20px; /* Espacement entre les éléments */
+    justify-content: center; /* Centre les colonnes horizontalement */
+    align-items: center; /* Aligne les éléments verticalement (optionnel si utile) */
+    margin: 0 auto; /* Centre la grille au milieu de la page */
+    max-width: 1550px; /* Largeur maximale de la galerie pour éviter qu'elle soit trop étirée */
+}
+
+.gallery-item {
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.gallery-item img {
+        width: 100%;
+        height: 600px; /* Hauteur fixe pour un rendu uniforme */
+        object-fit: cover; /* Coupe l'image tout en conservant les proportions */
+        display: block; /* Assure que l'image ne laisse pas de marges blanches autour */
+        margin: 0 auto; /* Centre l'image à l'intérieur de son conteneur */
+        transition: transform 0.3s ease-in-out;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.1);
+}
+
+
+/* ---- EFFET SURVOL ---- */
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    opacity: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.post-title {
+    position: absolute;
+    bottom: 10px; /* Distance par rapport au bas de l'overlay */
+    left: 10px;   /* Distance par rapport au côté gauche */
+    font-size: 15px;
+    color: white;
+    font-family: 'Poppins';
+    text-transform: uppercase;
+}
+
+.post-categories {
+    position: absolute;
+    bottom: 10px; /* Distance par rapport au bas de l'overlay */
+    right: 10px;   /* Distance par rapport au côté gauche */
+    font-size: 15px;
+    color: white;
+    font-family: 'Poppins';
+    margin: 0;
+    text-transform: uppercase;
+}
+
+.overlay .post-ref {
+    display: none;
+} 
+
+.lightbox-content .post-ref {
+    position: absolute;
+    bottom: 10px; /* Distance par rapport au bas de l'overlay */
+    left: 10px;   /* Distance par rapport au côté gauche */
+    font-size: 15px;
+    color: white;
+    font-family: 'Poppins';
+    text-transform: uppercase;
+    margin: 0;
+}
+
+.gallery-item:hover .overlay {
+    opacity: 1;
+}
+
+.eye-icon {
+    font-size: 30px;
+    color: white;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out;
+    text-decoration: none;
+}
+
+.eye-icon:hover {
+    transform: scale(1.2);
+}
+
+/* ---- LIGHTBOX ---- */
+/* ---- LIGHTBOX ---- */
+.lightbox {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+}
+
+/* Conteneur pour l'image et les flèches */
+.lightbox-content {
+    display: flex;
+    flex-direction: column; /* Alignement vertical pour l'image et les infos */
+    align-items: center; /* Centre horizontalement */
+    justify-content: center; /* Centre verticalement */
+    position: relative;
+    width: 80%;
+    text-align: center;
+}
+
+/* Image */
+.lightbox img {
+    width: 650px;
+    height: 650px;
+    object-fit: contain; /* Assure que l'image s'affiche entièrement sans être coupée */
+    margin-top: 30px;
+    overflow: hidden;
+}
+
+
+/* Informations sous l'image */
+.lightbox .lightbox-info {
+    margin-top: 15px; /* Espace entre l'image et les infos */
+    color: white;
+    display: flex; /* Utilisation de flexbox pour aligner les éléments */
+    justify-content: space-between; /* Espacement entre les éléments */
+    width: 100%; /* Remplir la largeur */
+    font-family: 'poppins';
+    text-transform: uppercase;
+}
+
+/* Chaque ligne d'information */
+.lightbox .lightbox-info p {
+    margin: 5px 0; /* Espacement entre les lignes */
+    width: 48%; /* Pour permettre un espacement égal entre gauche et droite */
+}
+
+.lightbox .lightbox-info strong {
+    font-weight: bold;
+}
+
+/* Flèches de navigation */
+.lightbox .lightbox-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 24px; /* Agrandissement des flèches */
+    color: white;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 10px 15px;
+    display: flex;
+    align-items: center;
+}
+
+.lightbox .lightbox-nav i {
+    font-size: 24px; /* Agrandissement des flèches */
+    margin: 0 8px; /* Espacement entre le texte et l'icône */
+}
+
+.lightbox .lightbox-nav:hover {
+    opacity: 0.7;
+}
+
+/* Flèche Précédente (à gauche) */
+.lightbox .left {
+    left: 30px;
+}
+
+/* Flèche Suivante (à droite) */
+.lightbox .right {
+    right: 30px;
+}
+
+/* Bouton de fermeture */
+.close-lightbox {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 40px;
+    color: white;
+    cursor: pointer;
+}
+
+
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+
+.custom-form {
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+    padding-top: -20px;
+}
+
+.label-name,
+.label-email,
+.label-message {
+    font-family: 'Poppins', sans-serif;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 18px;
+    text-align: left;
+    text-underline-position: from-font;
+    text-decoration-skip-ink: none;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.input-name,
+.input-email {
+    width: 263px;
+    height: 40px;
+    border-radius: 8px !important;
+    border: 1px solid black;
+    padding: 5px 10px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.input-message {
+    height: 210px;
+    width: 100%;
+    border-radius: 8px;
+    border: 1px solid black;
+    padding: 5px 10px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.submit-container {
+    text-align: center;
+    margin-top: -25px;
+    display: flex;
+    justify-content: center;
+}
+
+.submit-button, 
+input[type="submit"] {
+    width: 263px;  
+    height: 50px;  
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 15px;
+    border-radius: 2px 0px 0px 0px;
+    background-color: #D8D8D8 !important;
+    border: none;
+    cursor: pointer;
+    color: #333 !important;
+    font-family: 'Space Mono', sans-serif;
+    font-size: 18px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.submit-button:hover, 
+input[type="submit"]:hover {
+    background-color: #bfbfbf !important;
+}
+
+.contact-title {
+    font-family: 'Poppins', sans-serif;
+    font-size: 50px;
+    font-style: italic;
+    text-transform: uppercase;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 0px; /* Évite un espace entre les lignes */
+
+}
+
+.span1 {
+    position: relative;
+    left: -180px;
+    white-space: nowrap;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.span2 {
+    position: relative;
+    left: -150px;
+    white-space: nowrap;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.contact-title p {
+    margin-top: 60px;
+    margin-bottom: 10px;
+}
+
+#filters {
+    display: flex;
+    gap: 20px;
+    padding-top: 40px;
+    padding-bottom: 10px;
+}
+
+#filters select {
+    padding: 10px;
+    border: 1px solid #ccc;
+    background: white;
+    cursor: pointer;
+    width: 300px;
+    height: 43px;
+    border-radius: 8px;
+    justify-content: space-between;
+}
+
+#filter-sort {
+    position: relative; /* Ou 'absolute' si tu veux qu'il soit positionné par rapport à un parent spécifique */
+    left: 400px;
+}
+
+#filter-category {
+    position: relative; /* Ou 'absolute' si tu veux qu'il soit positionné par rapport à un parent spécifique */
+    left: 80px;
+}
+
+#filter-format {
+    position: relative; /* Ou 'absolute' si tu veux qu'il soit positionné par rapport à un parent spécifique */
+    left: 80px;
+}
+
+.fullscreen-icon {
+    font-size: 24px;
+    color: white;
+    position: absolute;
+    top: 0px;
+    right: 20px;
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    padding: 5px;
+    border-radius: 50%;
+}
+.fullscreen-icon img {
+    width: 100%;
+    height: auto;
+}
+.gallery-item {
+    position: relative;
+}
+
+.overlay a, .fullscreen-icon i {
+    color: white;
+    padding: 10px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.gallery-item:hover .overlay,
+.gallery-item:hover .fullscreen-icon {
+    opacity: 1;
+}
+
+/* Conteneur principal */
+#single-photo {
+    margin: 60px;
+}
+
+.photo-container {
+    display: flex;
+    height: 80%;
+    width: 100%; /* Prendre toute la largeur du parent */
+    margin: auto; /* Pas de margin automatique, pas de centrer le contenu */
+    position: relative;
+    z-index: 1;
+}
+
+/* Bloc Infos */
+.photo-info {
+    width: 50%;
+    background: white;
+    border-bottom: 1px solid black;
+    overflow: hidden;
+    align-self: flex-end;
+}
+
+.photo-info h1 {
+    font-family: "Space Mono";
+    font-weight: 400;
+    font-style: italic;
+    font-size: 50px;
+    padding-bottom: 20px;
+}
+
+.photo-info p {
+    padding-top: 30px;
+    padding-bottom: 20px;
+    font-family: "Space Mono";
+    font-weight: 400;
+    font-size: 20px;
+    margin: 5px 0;
+}
+
+.photo-display {
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end; /* Aligne l'image à droite */
+    overflow: hidden;
+}
+
+.photo-display img {
+    width: 100%; /* Prend toute la largeur du conteneur */
+    height: 100%; /* Prend toute la hauteur du conteneur */
+}
+
+
+/* Bloc Footer */
+.photo-footer {
+    height: 118px;
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    color: white;
+    border-bottom: 1px solid black;
+}
+
+.photo-footer span {
+    color: black;
+}
+
+/* Bouton Contact */
+.open-contact-popup {
+    width: 272px;
+    height: 50px;
+    background-color: #D8D8D8 !important;
+    font-family: "Space Mono";
+    font-weight: 400;
+    font-size: 12px;
+    color: #000;
+}
+
+.contact-link {
+    margin-left: 150px;
+}
+
+/* Navigation */
+.photo-nav {
+    position: absolute;
+    display: flex;
+    right: 60px;
+    margin-top: 70px;
+}
+
+.prev-photo-thumbnail {
+    width: 70px;
+    height: 50px;
+    object-fit: cover; /* Assure une bonne couverture de l'image sans déformation */
+    margin-right: 10px; /* Espace entre l'image et la flèche */
+    border-radius: 5px; /* Ajouter des coins arrondis pour plus de style */
+    position: absolute; /* Positionner l'image de manière absolue */
+    right: 0px; /* Placer l'image juste au-dessus de la flèche gauche */
+    bottom: 30px; /* Placer l'image juste au-dessus des flèches */
+}
+
+.photo-nav a {
+    color: black;
+    text-decoration: none;
+    font-size: 1.2rem;
+    padding: 10px;
+    margin-right: 10px;
+}
+
+.photo-nav a.prev-photo:hover::after {
+    background-image: var(--prev-thumb);
+}
+
+.photo-nav a.next-photo:hover::after {
+    background-image: var(--next-thumb);
+}
+
+
+.related-photos h2{
+    font-family: "Space Mono";
+    font-weight: 400;
+    font-size: 20px;
+}
+
+main {
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
+/* Style du bouton hamburger */
+.hamburger-menu {
+    display: none; /* Caché par défaut sur les grands écrans */
+    background: none;
+    border: none;
+    font-size: 28px;
+    cursor: pointer;
+    position: absolute;
+    right: 20px;
+    z-index: 9999; /* Z-index élevé pour être au-dessus de tout autre élément */
+    color: black;
+    text-decoration: none !important;
+}
+
+/* Conteneur d'image, vérifie si l'image n'a pas un z-index élevé */
+.photo-container {
+    position: relative; /* Position relative pour être sûr que l'image est en fond */
+    z-index: 1; /* Assure-toi que l'image ne cache pas le hamburger */
+}
+
+/* Pop-up Contact */
+#contact-popup {
+    margin-top: 30px;
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.popup-content {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    max-width: 500px;
+    width: 90%;
+    position: relative;
+    overflow: hidden;
+}
+
+#close-popup {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+/* Menu mobile */
+#mobile-menu {
+    display: none;
+}
+
+
+@media (max-width: 768px) {
+
+    /* Galerie */
+    .gallery-grid {
+        grid-template-columns: 1fr; /* Une seule colonne */
+    }
+
+    .gallery-item img {
+        height: 300px;
+    }
+
+    #filters {
+        flex-direction: column;
+        align-items: center; /* Centrer les filtres en colonne */
+        gap: 15px; /* Espacement ajusté pour mobile */
+    }
+
+    #filters select {
+        left: auto;
+        width: 100%; /* Occuper toute la largeur disponible */
+        max-width: 300px; /* Empêcher qu'il devienne trop large */
+    }
+
+    /* Footer */
+    #site-footer .container {
+        display: block; /* Passe le container en mode bloc */
+        text-align: center; /* Centre les éléments */
+    }
+
+    #site-footer .footer-navigation-left,
+    #site-footer .footer-navigation-center,
+    #site-footer .footer-navigation-right {
+        margin-bottom: 15px; /* Ajoute un espacement entre les éléments */
+    }
+
+    #site-footer .footer-navigation-left ul li,
+    #site-footer .footer-navigation-center ul li,
+    #site-footer .footer-navigation-right ul li {
+        padding: 10px 0; /* Ajoute plus d'espace entre les éléments */
+    }
+
+    /* Menu mobile */
+    .hamburger-menu {
+        display: block; /* Affiché sur mobile */
+    }
+
+    .desktop-navigation {
+        display: none; /* Cache le menu desktop */
+    }
+
+    .mobile-navigation {
+        display: none; /* Caché */
+        background: white;
+        position: absolute;
+        top: 50px; /* Placer le menu juste sous le hamburger */
+        right: 0;
+        width: 200px;
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+        border-radius: 8px;
+        z-index: 9998; /* Assure-toi que le menu est devant les éléments */
+    }
+
+    .mobile-navigation ul {
+        display: flex;
+        flex-direction: column;
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .mobile-navigation ul li {
+        padding: 10px;
+    }
+
+    .mobile-navigation ul li a {
+        text-decoration: none;
+        color: #333;
+        display: block;
+        font-size: 18px;
+    }
+
+    /* Affiche le menu lorsqu'il est activé */
+    .mobile-navigation.active {
+        display: block; /* Menu visible */
+    }
+
+    /* Photo */
+    #single-photo {
+        margin: 0;
+    }
+
+    .photo-container {
+        display: flex;
+        flex-direction: column-reverse; /* Inverse l'ordre des éléments */
+        align-items: center; /* Centre les éléments horizontalement */
+        text-align: center; /* Centre le texte */
+        gap: 20px;
+    }
+
+    .photo-display,
+    .photo-info,
+    .photo-footer {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .photo-info h1 {
+        text-align: left;
+        margin-top: 0;
+        margin-bottom: 0;
+        font-family: "Space Mono";
+        font-weight: 400;
+        font-style: italic;
+        font-size: 30px; /* Réduit la taille du titre pour les écrans plus petits */
+    }
+
+    .photo-info p {
+        text-align: left;
+        padding-top: 0;
+    }
+
+    .photo-display {
+        width: 100%;
+    }
+
+    .photo-display img {
+        width: 100%; /* Prend toute la largeur du conteneur */
+        height: auto; /* La hauteur s'ajuste automatiquement pour préserver le ratio de l'image */
+        max-height: 100%; /* Limite la hauteur à celle du conteneur */
+        object-fit: contain; /* L'image s'ajuste sans déformer, et reste entièrement visible */
+        overflow: hidden; /* Assure que l'image ne dépasse pas */
+    }
+
+    .photo-footer {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        gap: 10px;
+    }
+
+    .photo-footer .contact-link {
+        margin-left: 0; /* Supprime la marge qui décale le bouton */
+        display: flex;
+        justify-content: center; /* Centre horizontalement */
+        width: 100%; /* Prend toute la largeur disponible */
+    }
+
+    .photo-footer .contact-link .open-contact-popup {
+        padding: 12px 20px;
+        height: 50px;
+        background-color: #D8D8D8 !important;
+        font-family: "Space Mono";
+        font-weight: 400;
+        color: #000;
+        text-align: center;
+        display: block;
+        margin: 0 auto; /* Centre parfaitement */
+    }
+
+    /* Masquer les flèches en responsive */
+    .photo-nav {
+        display: none; /* Masque les flèches */
+    }
+
+    .related-photos h2 {
+        text-align: center;
+    }
+
+    .gallery-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    /* Mettre "Cette photo vous intéresse ?" au-dessus du bouton en responsive */
+    .photo-footer span {
+        font-size: 1rem;
+    }
+
+    /* Flèches lightbox */
+    .lightbox .left {
+        left: -55px; /* Augmenter l'écartement pour les écrans mobiles */
+    }
+
+    .lightbox .right {
+        right: -55px; /* Augmenter l'écartement pour les écrans mobiles */
+    }
+
+    #contact-popup {
+        margin: 0;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
