@@ -23,8 +23,7 @@ endif;
 add_action('wp_enqueue_scripts', 'chld_thm_cfg_parent_css', 10);
 // END ENQUEUE PARENT ACTION
 
-// Charger les images depuis le custom post type "photos"
-function filter_photos() {
+function load_photos() {
     check_ajax_referer('load_more_nonce', 'nonce');
 
     // Récupération des filtres et de l'offset
@@ -61,7 +60,7 @@ function filter_photos() {
         ];
     }
 
-    // Requête WP avec les arguments modifiés
+    // Exécuter la requête WP
     $query = new WP_Query($args);
     $html = '';
 
@@ -73,107 +72,35 @@ function filter_photos() {
             $title = get_the_title();
             $permalink = get_permalink();
 
-            // Ajout de l'HTML pour chaque post
+            // Ajouter l'HTML pour chaque post
             $html .= '<div class="gallery-item">';
             $html .= '<a href="' . esc_url($permalink) . '">';
             $html .= '<img src="' . esc_url($image_url) . '" alt="' . esc_attr($title) . '">';
             $html .= '</a>';
             $html .= '<div class="overlay">';
             $html .= '<div class="post-title">' . esc_html($title) . '</div>';
-            $category = get_field('categories');
-            $html .= '<p class="post-categories">' . esc_html($category ? $category : 'Non spécifiée') . '</p>';
-            $html .= '<a href="' . esc_url($permalink) . '" class="eye-icon">&#128065;</a>';
-            $html .= '<div class="fullscreen-icon" data-post-id="' . get_the_ID() . '"><i class="fa-solid fa-expand"></i></div>';
-            $html .= '</div>'; // Ferme .overlay
-            $html .= '</div>'; // Ferme .gallery-item
-        }
-        wp_reset_postdata();
-    }
 
-    wp_send_json_success(['html' => $html, 'offset' => $offset + 8]); // Retourne également le nouvel offset
-}
-
-add_action('wp_ajax_filter_photos', 'filter_photos');
-add_action('wp_ajax_nopriv_filter_photos', 'filter_photos');
-
-function load_more_photos() {
-    check_ajax_referer('load_more_nonce', 'nonce');
-
-    // Récupération des filtres et de l'offset
-    $category = isset($_POST['category']) ? sanitize_text_field($_POST['category']) : '';
-    $format = isset($_POST['format']) ? sanitize_text_field($_POST['format']) : '';
-    $offset = isset($_POST['offset']) ? (int) $_POST['offset'] : 0; // Utiliser l'offset envoyé en AJAX
-    $sort = isset($_POST['sort']) ? sanitize_text_field($_POST['sort']) : 'date_desc'; // Récupérer l'option de tri
-
-    // Définir les arguments pour la requête WP
-    $args = [
-        'post_type'      => 'photos',
-        'post_status'    => 'publish',
-        'posts_per_page' => 8,
-        'orderby'        => 'date',
-        'order'          => $sort === 'date_asc' ? 'ASC' : 'DESC', // Appliquer l'ordre en fonction du filtre
-        'offset'         => $offset,
-        'meta_query'     => []
-    ];
-
-    // Ajouter les filtres si présents
-    if (!empty($category)) {
-        $args['meta_query'][] = [
-            'key'     => 'categories',
-            'value'   => $category,
-            'compare' => 'LIKE'
-        ];
-    }
-
-    if (!empty($format)) {
-        $args['meta_query'][] = [
-            'key'     => 'formats',
-            'value'   => $format,
-            'compare' => 'LIKE'
-        ];
-    }
-
-    $query = new WP_Query($args);
-    $html = '';
-
-    if ($query->have_posts()) {
-        while ($query->have_posts()) {
-            $query->the_post();
-            $image = get_field('image', get_the_ID());
-            $image_url = !empty($image) ? esc_url($image['url']) : 'default-image.jpg';
-            $title = get_the_title();
-            $permalink = get_permalink();
-    
-            // Ajout de l'HTML pour chaque post
-            $html .= '<div class="gallery-item">';
-            $html .= '<a href="' . esc_url($permalink) . '">';
-            $html .= '<img src="' . esc_url($image_url) . '" alt="' . esc_attr($title) . '">';
-            $html .= '</a>';
-            $html .= '<div class="overlay">';
-            
-            // Affichage du titre du post
-            $html .= '<div class="post-title">' . esc_html($title) . '</div>';
-    
             // Affichage de la catégorie via le champ personnalisé
             $category = get_field('categories');
             $html .= '<p class="post-categories">' . esc_html($category ? $category : 'Non spécifiée') . '</p>';
-    
+
             // Icône "œil" et "plein écran"
             $html .= '<a href="' . esc_url($permalink) . '" class="eye-icon">&#128065;</a>';
             $html .= '<div class="fullscreen-icon" data-post-id="' . get_the_ID() . '"><i class="fa-solid fa-expand"></i></div>';
-            
+
             $html .= '</div>'; // Ferme .overlay
             $html .= '</div>'; // Ferme .gallery-item
         }
         wp_reset_postdata();
     }
 
-    // Renvoi des données et calcul de l'offset suivant
+    // Retourner les résultats et calculer l'offset suivant
     wp_send_json_success(['html' => $html, 'newOffset' => $offset + 8]);
 }
 
-add_action('wp_ajax_load_more_photos', 'load_more_photos');
-add_action('wp_ajax_nopriv_load_more_photos', 'load_more_photos');
+add_action('wp_ajax_load_photos', 'load_photos');
+add_action('wp_ajax_nopriv_load_photos', 'load_photos');
+
 
 // Fonction AJAX pour récupérer les détails du post
 add_action('wp_ajax_load_post_details', 'load_post_details');

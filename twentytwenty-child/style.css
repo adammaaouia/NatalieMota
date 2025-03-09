@@ -49,6 +49,15 @@ main {
     color: red;
 }
 
+.desktop-navigation a {
+    transition: font-weight 0.3s ease; /* Pour une transition fluide */
+}
+
+.desktop-navigation a:hover {
+    font-weight: bold; /* Texte en gras au survol */
+}
+
+
 #site-footer {
     padding-top: 10px;
     padding-bottom: 50px;
@@ -88,6 +97,8 @@ ul li {
 }
 
 ul li a {
+    text-transform: uppercase;
+    font-family: 'space mono';
     text-decoration: none;
     color: #000;
 }
@@ -107,14 +118,16 @@ footer {
 
 /* Style pour la bannière */
 #banner {
-    background-image: url('nathalie-11.jpeg'); /* Correction du chemin */
+    background-image: url('nathalie-11.jpeg');
     background-size: cover;
     background-position: center;
-    min-height: 966px; /* Hauteur minimale pour garder l'image visible */
+    min-height: 966px;
+    max-height: 100vh; /* Ne dépasse pas la hauteur de l'écran */
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #000; /* Couleur de fond en secours */
+    background-color: #000;
+    padding: 20px; /* Ajoute un peu d'espace pour les petits écrans */
 }
 
 /* Style du contenu */
@@ -122,55 +135,52 @@ footer {
     text-align: center;
     color: #fff;
     text-shadow: 0 2px 5px rgba(0, 0, 0, 0.7);
+    width: 100%;
+    max-width: 1200px; /* Pour éviter que le contenu soit trop large */
 }
 
 /* Style du titre */
 #banner h1 {
-    font-size: 120px;
+    font-size: 6vw; /* Ajuste la taille dynamiquement */
     color: transparent;
-    -webkit-text-stroke: 3px white; /* Bordure du texte */
+    -webkit-text-stroke: 2px white;
     text-shadow: none;
     line-height: 1.2;
 }
 
-
-
-
-/* Mode Responsive pour écrans plus petits */
+/* Responsive */
 @media (max-width: 1024px) {
     #banner {
-        height: 600px; /* Hauteur réduite pour les tablettes */
+        min-height: 600px;
     }
 
     #banner h1 {
-        font-size: 100px; /* Taille ajustée pour les tablettes */
-        -webkit-text-stroke: 1px white; /* Bordure autour du texte */
+        font-size: 8vw;
+        -webkit-text-stroke: 1.5px white;
     }
 }
 
 @media (max-width: 768px) {
     #banner {
-        height: 400px; /* Hauteur réduite pour les petits écrans */
+        background-repeat: no-repeat;
     }
 
     #banner h1 {
-        font-size: 80px; /* Taille ajustée pour les petits écrans */
-        -webkit-text-stroke: 1px white; /* Bordure autour du texte */
+        font-size: 9vw;
+        -webkit-text-stroke: 1px white;
     }
 }
 
 @media (max-width: 480px) {
     #banner {
-        height: 300px; /* Hauteur réduite pour les très petits écrans */
+        min-height: 280px;
     }
 
     #banner h1 {
-        font-size: 60px; /* Taille ajustée pour les très petits écrans */
-        -webkit-text-stroke: 1px white; /* Bordure autour du texte */
+        font-size: 10vw;
+        -webkit-text-stroke: 0.8px white;
     }
 }
-
-
 
 /* Style pour le contenu principal */
 #site-content .container {
@@ -215,10 +225,13 @@ footer {
     cursor: pointer;
     width: 272px;
     height: 50px;
+    font-family: 'Space mono';
+    text-decoration: none;
 }
 
 #load-more:hover {
-    background: rgba(0, 0, 0, 0.4);
+    background-color: black;
+    color: white;
 }
 
 /* Styles pour la pop-up */
@@ -453,11 +466,15 @@ footer {
 /* Flèche Précédente (à gauche) */
 .lightbox .left {
     left: 30px;
+    font-size: 18px;
+    font-family: 'Space Mono';
 }
 
 /* Flèche Suivante (à droite) */
 .lightbox .right {
-    right: 30px;
+    right: 80px;
+    font-size: 18px;
+    font-family: 'Space Mono';
 }
 
 /* Bouton de fermeture */
@@ -472,7 +489,7 @@ footer {
 
 
 
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap');
 
 .custom-form {
     width: 100%;
@@ -485,7 +502,7 @@ footer {
 .label-email,
 .label-message {
     font-family: 'Poppins', sans-serif;
-    font-size: 18px;
+    font-size: 14px !important;
     font-weight: 500;
     line-height: 18px;
     text-align: left;
@@ -493,6 +510,7 @@ footer {
     text-decoration-skip-ink: none;
     display: block;
     margin-bottom: 5px;
+    font-weight: normal;
 }
 
 .input-name,
@@ -503,7 +521,9 @@ footer {
     border: 1px solid black;
     padding: 5px 10px;
     font-family: 'Poppins', sans-serif;
+    margin-top: 10px !important; /* Ajout de l'espace spécifique entre le label et l'input */
 }
+
 
 .input-message {
     height: 210px;
@@ -512,6 +532,7 @@ footer {
     border: 1px solid black;
     padding: 5px 10px;
     font-family: 'Poppins', sans-serif;
+    margin-top: 10px; /* Ajout de l'espace spécifique entre le label et l'input */
 }
 
 .submit-container {
@@ -542,36 +563,36 @@ input[type="submit"] {
 
 .submit-button:hover, 
 input[type="submit"]:hover {
-    background-color: #bfbfbf !important;
+    background-color: black !important;
+    color: white !important;
 }
 
 .contact-title {
-    font-family: 'Poppins', sans-serif;
-    font-size: 50px;
+    font-size: 56px;
     font-style: italic;
     text-transform: uppercase;
     text-align: center;
-    display: flex;
     flex-direction: column;
     gap: 0px; /* Évite un espace entre les lignes */
 
 }
 
 .span1 {
+    font-family: 'Space Mono';
     position: relative;
-    left: -180px;
+    left: -173px;
     white-space: nowrap;
     text-align: center;
-    margin-bottom: 10px;
 }
 
 .span2 {
+    font-family: 'Space Mono';
     position: relative;
-    left: -150px;
+    left: -140px;
     white-space: nowrap;
     text-align: center;
-    margin-bottom: 10px;
 }
+
 
 .contact-title p {
     margin-top: 60px;
@@ -597,19 +618,32 @@ input[type="submit"]:hover {
 }
 
 #filter-sort {
+    font-size: 14px;
     position: relative; /* Ou 'absolute' si tu veux qu'il soit positionné par rapport à un parent spécifique */
     left: 400px;
+    font-family: 'Poppins';
+    text-transform: uppercase; /* Met le texte en majuscules */
+    font-weight: normal; /* Retire le gras */
 }
 
 #filter-category {
+    font-size: 14px;
     position: relative; /* Ou 'absolute' si tu veux qu'il soit positionné par rapport à un parent spécifique */
     left: 80px;
+    font-family: 'Poppins';
+    text-transform: uppercase; /* Met le texte en majuscules */
+    font-weight: normal; /* Retire le gras */
 }
 
 #filter-format {
+    font-size: 14px;
     position: relative; /* Ou 'absolute' si tu veux qu'il soit positionné par rapport à un parent spécifique */
     left: 80px;
+    font-family: 'Poppins';
+    text-transform: uppercase; /* Met le texte en majuscules */
+    font-weight: normal; /* Retire le gras */
 }
+
 
 .fullscreen-icon {
     font-size: 24px;
@@ -672,6 +706,7 @@ input[type="submit"]:hover {
     font-style: italic;
     font-size: 50px;
     padding-bottom: 20px;
+    text-transform: uppercase; /* Met tout le texte en majuscules */
 }
 
 .photo-info p {
@@ -681,7 +716,9 @@ input[type="submit"]:hover {
     font-weight: 400;
     font-size: 20px;
     margin: 5px 0;
+    text-transform: uppercase; /* Met tout le texte en majuscules */
 }
+
 
 .photo-display {
     width: 50%;
@@ -702,13 +739,14 @@ input[type="submit"]:hover {
     height: 118px;
     display: flex;
     align-items: center;
-    padding: 0 20px;
     color: white;
     border-bottom: 1px solid black;
 }
 
 .photo-footer span {
+    font-family: 'Poppins';
     color: black;
+    font-size: 16px;
 }
 
 /* Bouton Contact */
@@ -1026,6 +1064,9 @@ main {
     }
 
     #contact-popup {
+        margin: 0;
+    }
+    .input-email .input-message .input-name {
         margin: 0;
     }
 }

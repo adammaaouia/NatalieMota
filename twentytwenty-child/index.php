@@ -166,7 +166,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // Fonction pour charger plus d'images via AJAX
     function loadMoreImages() {
         let formData = new FormData();
-        formData.append("action", "load_more_photos");
+        formData.append("action", "load_photos");
         formData.append("offset", offset); // Ajouter l'offset pour le chargement
         formData.append("nonce", nonce);
 
@@ -209,7 +209,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // Fonction pour mettre à jour la galerie selon les filtres
     function updateGallery() {
         let formData = new FormData();
-        formData.append("action", "filter_photos");
+        formData.append("action", "load_photos");
         formData.append("format", formatFilter.value);
         formData.append("category", categoryFilter.value);
         formData.append("sort", sortFilter.value); 

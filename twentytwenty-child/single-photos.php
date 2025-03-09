@@ -14,6 +14,7 @@
         $formats = get_field('format');
         $date_prise = get_the_date('d/m/Y');
         $categories = get_field('categories');
+        $type = get_field('type');
         ?>
 
         <div class="photo-container">
@@ -23,6 +24,7 @@
                 <p>Référence: <?php echo esc_html(get_field('reference') ? get_field('reference') : 'Non spécifiée'); ?></p>
                 <p>Catégorie : <?php echo esc_html(get_field('categories') ? get_field('categories') : 'Non spécifiée'); ?></p>
                 <p>Format : <?php echo esc_html(get_field('formats') ? get_field('formats') : 'Non spécifié'); ?></p>
+                <p>Type : <?php echo esc_html(get_field('type') ? get_field('type') : 'Non spécifié'); ?></p>
                 <p>Année : <?php echo esc_html($date_prise); ?></p>
             </div>
 

@@ -16,11 +16,13 @@ $reference = $reference ? esc_html($reference) : 'Non spécifiée';
     <div class="lightbox-content">
         <div id="prev" class="lightbox-nav left">
             <i class="fa-solid fa-arrow-left-long"></i>
+            <span class="nav-label">Précédente</span>  <!-- Label ajouté -->
         </div>
 
         <img id="lightbox-image" src="" alt="">
 
         <div id="next" class="lightbox-nav right">
+            <span class="nav-label">Suivante</span>  <!-- Label ajouté -->
             <i class="fa-solid fa-arrow-right-long"></i>
         </div>
 
@@ -31,6 +33,7 @@ $reference = $reference ? esc_html($reference) : 'Non spécifiée';
         <p class="post-ref"><span id="reference-value">Non spécifiée</span></p>
     </div>
 </div>
+
 
 
 <script>
