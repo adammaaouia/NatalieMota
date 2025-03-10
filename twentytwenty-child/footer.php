@@ -22,13 +22,14 @@
 
         <div class="footer-navigation-center">
             <ul>
-                <li><a href="http://mota.local/vie-privee/">Vie privée</a></li>
+                <li><a href="http://mota.local/politique-de-confidentialite/">Vie privée</a></li>
             </ul>
         </div>
 
         <div class="footer-navigation-right">
             <ul>
-                <li><a href="http://mota.local/tous-droits-reserves/">Tous droits réservés</a></li>
+                <!-- Mention statique Tous droits réservés -->
+                <li><span>Tous droits réservés</span></li>
             </ul>
         </div>
     </div>

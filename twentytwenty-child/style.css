@@ -103,6 +103,13 @@ ul li a {
     color: #000;
 }
 
+ul li span {
+    text-transform: uppercase;
+    font-family: 'space mono';
+    text-decoration: none;
+    color: #000;
+}
+
 .footer-navigation-left ul li, .footer-navigation-right ul li {
     margin-right: 30px;
 }
