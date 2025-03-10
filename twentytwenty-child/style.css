@@ -118,7 +118,6 @@ footer {
 
 /* Style pour la bannière */
 #banner {
-    background-image: url('nathalie-11.jpeg');
     background-size: cover;
     background-position: center;
     min-height: 966px;
@@ -454,13 +453,21 @@ footer {
     align-items: center;
 }
 
+.lightbox-nav {
+    transition: font-weight 0.3s ease;
+}
+
 .lightbox .lightbox-nav i {
     font-size: 24px; /* Agrandissement des flèches */
     margin: 0 8px; /* Espacement entre le texte et l'icône */
 }
 
 .lightbox .lightbox-nav:hover {
-    opacity: 0.7;
+    font-weight: bold;
+}
+
+.lightbox-nav:hover i {
+    font-weight: bold; /* Pour certaines polices d'icônes, cela peut ne pas fonctionner */
 }
 
 /* Flèche Précédente (à gauche) */
@@ -760,6 +767,12 @@ input[type="submit"]:hover {
     color: #000;
 }
 
+.open-contact-popup:hover {
+    background-color: black !important;
+    color: white !important;
+    text-decoration: none;
+}
+
 .contact-link {
     margin-left: 150px;
 }
@@ -773,15 +786,16 @@ input[type="submit"]:hover {
 }
 
 .prev-photo-thumbnail {
+    position: absolute;
+    right: 0px; /* Assure qu'elle reste bien collée à droite */
+    bottom: 30px; /* Assure qu'elle reste au-dessus des flèches */
     width: 70px;
     height: 50px;
-    object-fit: cover; /* Assure une bonne couverture de l'image sans déformation */
-    margin-right: 10px; /* Espace entre l'image et la flèche */
-    border-radius: 5px; /* Ajouter des coins arrondis pour plus de style */
-    position: absolute; /* Positionner l'image de manière absolue */
-    right: 0px; /* Placer l'image juste au-dessus de la flèche gauche */
-    bottom: 30px; /* Placer l'image juste au-dessus des flèches */
+    object-fit: cover;
+    border-radius: 5px;
+    pointer-events: none; /* Pour éviter qu'elle gêne le survol */
 }
+
 
 .photo-nav a {
     color: black;
@@ -798,6 +812,29 @@ input[type="submit"]:hover {
 .photo-nav a.next-photo:hover::after {
     background-image: var(--next-thumb);
 }
+
+.photo-preview {
+    position: absolute;
+    margin-right: 10px;
+    bottom: 30px; /* Toujours au-dessus des flèches */
+    width: 70px;
+    height: 50px;
+    object-fit: cover; /* Assure que l'image ne se déforme pas */
+    border-radius: 5px;
+    pointer-events: none; /* Pour éviter les interactions accidentelles */
+    z-index: 10;
+    display: none;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.prev-photo-preview {
+    left: -120px;
+}
+
+.next-photo-preview {
+    right: -120px;
+}
+
 
 
 .related-photos h2{
@@ -1068,6 +1105,18 @@ main {
     }
     .input-email .input-message .input-name {
         margin: 0;
+    }
+
+    .lightbox .lightbox-nav {
+        top: 95%;
+    }
+
+    .lightbox-content .post-categories {
+        bottom: -50px;
+    }
+
+    .lightbox-content .post-ref {
+        bottom: -50px;
     }
 }
 

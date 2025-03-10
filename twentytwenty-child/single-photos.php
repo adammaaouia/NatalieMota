@@ -47,29 +47,31 @@
     <?php
     $prev_post = get_previous_post();
     $next_post = get_next_post();
-
-    // Vérifier s'il existe une photo précédente
-    if ($prev_post) :
-        // Récupérer l'image ACF pour la photo précédente
-        $prev_post_image = get_field('image', $prev_post->ID); // Remplacer 'image' par le nom du champ ACF pour l'image
-        $prev_post_image_url = !empty($prev_post_image) ? esc_url($prev_post_image['url']) : 'default-image.jpg'; // Si pas d'image, utiliser une image par défaut
     ?>
-    <?php if ($next_post) : ?>
-        <a href="<?php echo get_permalink($next_post->ID); ?>" class="nav-link next-photo"
-           data-thumbnail="<?php echo get_the_post_thumbnail_url($next_post->ID, 'thumbnail'); ?>">
-            ⬅  
+
+    <?php if ($next_post) : 
+        $next_post_image = get_field('image', $next_post->ID); 
+        $next_post_image_url = !empty($next_post_image) ? esc_url($next_post_image['url']) : 'default-image.jpg';
+    ?>
+        <a href="<?php echo get_permalink($next_post->ID); ?>" 
+           class="nav-link next-photo"
+           data-thumbnail="<?php echo $next_post_image_url; ?>">
+            ⬅
         </a>
     <?php endif; ?>
 
-    <!-- Affichage de l'image de la photo précédente juste avant la flèche -->
-    <a href="<?php echo get_permalink($prev_post->ID); ?>" class="nav-link prev-photo"
-           data-thumbnail="<?php echo get_the_post_thumbnail_url($prev_post->ID, 'thumbnail'); ?>">
-            <!-- Image de la photo précédente -->
-            <img src="<?php echo $prev_post_image_url; ?>" alt="Aperçu photo précédente" class="prev-photo-thumbnail">
+    <?php if ($prev_post) : 
+        $prev_post_image = get_field('image', $prev_post->ID); 
+        $prev_post_image_url = !empty($prev_post_image) ? esc_url($prev_post_image['url']) : 'default-image.jpg';
+    ?>
+        <a href="<?php echo get_permalink($prev_post->ID); ?>" 
+           class="nav-link prev-photo"
+           data-thumbnail="<?php echo $prev_post_image_url; ?>">
             ➡
         </a>
     <?php endif; ?>
 </div>
+
 
         </div>
 
@@ -172,5 +174,40 @@ get_template_part('lightbox');
             });
         });
     });
+
+    document.addEventListener("DOMContentLoaded", function () {
+    document.querySelectorAll(".nav-link").forEach(link => {
+        link.addEventListener("mouseenter", function () {
+            let thumbnailUrl = this.getAttribute("data-thumbnail");
+            if (thumbnailUrl) {
+                let preview = document.createElement("img");
+                preview.src = thumbnailUrl;
+                preview.classList.add("photo-preview");
+
+                // Applique exactement les mêmes styles que `.prev-photo-thumbnail`
+                preview.style.position = "absolute";
+                preview.style.right = "0px"; // Collé à droite
+                preview.style.bottom = "30px"; // Toujours au-dessus des flèches
+                preview.style.width = "70px"; // Taille de l'aperçu
+                preview.style.height = "50px";
+                preview.style.objectFit = "cover"; // Ajuste bien l’image
+                preview.style.borderRadius = "5px";
+                preview.style.pointerEvents = "none"; // Évite d’interférer avec le survol
+
+                this.appendChild(preview);
+                preview.style.display = "block";
+            }
+        });
+
+        link.addEventListener("mouseleave", function () {
+            let preview = this.querySelector(".photo-preview");
+            if (preview) {
+                preview.remove();
+            }
+        });
+    });
+});
+
+
 </script>
 

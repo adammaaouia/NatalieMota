@@ -12,25 +12,25 @@
  */
 
 ?>
-
 <footer id="site-footer">
     <div class="container">
         <div class="footer-navigation-left">
             <ul>
-                <li><a href="#">Mentions légales</a></li>
+                <li><a href="http://mota.local/mentions-legales/">Mentions légales</a></li>
             </ul>
         </div>
 
         <div class="footer-navigation-center">
             <ul>
-                <li><a href="#">Vie privée</a></li>
+                <li><a href="http://mota.local/vie-privee/">Vie privée</a></li>
             </ul>
         </div>
 
         <div class="footer-navigation-right">
             <ul>
-                <li><a href="#">Tous droits réservés</a></li>
+                <li><a href="http://mota.local/tous-droits-reserves/">Tous droits réservés</a></li>
             </ul>
         </div>
     </div>
 </footer>
+

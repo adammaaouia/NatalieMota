@@ -10,8 +10,23 @@
 get_header();
 ?>
 
+<?php
+// Récupère un post aléatoire
+$random_photo = get_posts([
+    'post_type'      => 'photos',
+    'post_status'    => 'publish',
+    'posts_per_page' => 1,
+    'orderby'        => 'rand',
+]);
+
+if (!empty($random_photo)) {
+    $random_image = get_field('image', $random_photo[0]->ID);
+    $random_image_url = !empty($random_image) ? esc_url($random_image['url']) : 'default-image.jpg';
+}
+?>
+
 <!-- Banner Section -->
-<section id="banner">
+<section id="banner" style="background-image: url('<?php echo $random_image_url; ?>');">
     <div class="banner-content">
         <h1 class="space-mono-bold-italic">PHOTOGRAPHE EVENT</h1>
     </div>
